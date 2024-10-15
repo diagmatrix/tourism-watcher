@@ -6,8 +6,9 @@ Proyecto en Python para monitorizar las viviendas turísticas en Granada, Españ
 
 1. Extracción de datos de Airbnb. ✔️
 2. Extracción de datos públicos de las viviendas a partir del permiso turístico.
-3. Creación de análsis de los datos recogidos.
-4. Extracción de datos de otros portales.
+3. Eliminar programación necesaria para el uso / añadir UI.
+4. Creación de análsis de los datos recogidos.
+5. Extracción de datos de otros portales.
 
 ## Prerrequisitos
 
