@@ -202,7 +202,7 @@ class AirbnbScrapper:
             data.append(listing.to_list())
 
         file = filename if filename is not None else datetime.now().strftime('%Y-%m-%d') + "_listings.csv"
-        self.logger.info(f"Saving listings to {filename}")
+        self.logger.info(f"Saving listings to {file}")
         with open(file, mode="w", newline="") as file:
             writer = csv.writer(file)
             writer.writerows(data)
