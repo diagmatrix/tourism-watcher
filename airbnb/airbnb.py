@@ -203,10 +203,10 @@ class AirbnbScrapper:
 
         file = filename if filename is not None else datetime.now().strftime('%Y-%m-%d') + "_listings.csv"
         self.logger.info(f"Saving listings to {file}")
-        with open(file, mode="w", newline="") as file:
-            writer = csv.writer(file)
+        with open(file, mode="a", newline="", encoding="UTF-8") as f:
+            writer = csv.writer(f)
             writer.writerows(data)
-            file.close()
+            f.close()
 
     def _get_page(self, url: str, load_time: int) -> BeautifulSoup:
         """
