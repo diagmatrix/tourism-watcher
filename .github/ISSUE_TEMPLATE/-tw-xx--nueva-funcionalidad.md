@@ -1,7 +1,7 @@
 ---
 name: "[TW-XX] Nueva funcionalidad"
 about: Sugiere una idea para el proyecto
-title: ''
+title: '[TW-XX] Nueva funcionalidad'
 labels: enhancement
 assignees: ''
 

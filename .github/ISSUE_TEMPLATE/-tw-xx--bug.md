@@ -1,7 +1,7 @@
 ---
 name: "[TW-XX] Bug"
 about: Reportar un bug del proyecto
-title: "[TW-XX] BUG"
+title: "[TW-XX] Bug"
 labels: bug
 assignees: ''
 
