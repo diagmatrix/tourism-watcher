@@ -1,6 +1,9 @@
 # Tourism Watcher
 
-Proyecto en Python para monitorizar las viviendas turísticas en Granada, España.
+Proyecto en Python para monitorizar las viviendas turísticas en Granada, España. Puedes encontrar los datos obtenidos hasta ahora en la carpeta `data.
+Los datos recogidos se obtienen de la búsqueda:
+
+ - 15/10/2024 - Actualidad: Destino "Granada, España", "cualquier semana" y Airbnb preselecciona un viaje de 5 noches.
 
 ## Roadmap
 
