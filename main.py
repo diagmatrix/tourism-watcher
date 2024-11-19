@@ -1,6 +1,7 @@
 import logging
+import os
 
-from airbnb import AirbnbScrapper
+from ja import JAScrapper
 
 
 def start_logger(log_file: str = None) -> logging.Logger:
@@ -29,9 +30,17 @@ if __name__ == "__main__":
     # Start logger
     logger = start_logger()
 
-    logger.info("Starting scrapper")
+    # Firefox download options
+    options = {
+        "browser.download.folderList": 2,
+        "browser.download.dir": os.path.abspath("./data/ja_raw"),  # TODO: Add from env
+        "browser.helperApps.neverAsk.saveToDisk": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel",
+        #"browser.download.manager.showWhenStarting": False
+    }
 
-    with AirbnbScrapper("firefox") as scrapper:  # TODO: Add browser type from argument list
+    logger.info("Starting scrapping")
+
+    with JAScrapper("firefox", options, ("--no-sandbox")) as scrapper:  # TODO: Add browser type from argument list
         scrapper.extract()
 
-    logger.info("Ending scrapper")
+    logger.info("Ending scrapping")

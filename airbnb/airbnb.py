@@ -7,9 +7,8 @@ from bs4 import BeautifulSoup
 from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 
-from airbnb.exceptions import BrowserNotSupported, NullBrowserSession
-from airbnb.types import Browser, ListingData
-from airbnb.utils import start_selenium
+from utilities import Scrapper, Browser
+from airbnb.types import ListingData
 from airbnb.vars import (
     AIRBNB_URL,
     CSS_NEXT_PAGE,
@@ -22,7 +21,7 @@ from airbnb.vars import (
 )
 
 
-class AirbnbScrapper:
+class AirbnbScrapper(Scrapper):
     """
     Class responsible for scraping Airbnb listing pages
 
@@ -39,10 +38,7 @@ class AirbnbScrapper:
 
     def __init__(self, browser: Browser, arguments=("--headless", "--no-sandbox")) -> None:
         # Browser
-        self.browser_name = browser
-        self.browser_args = arguments
-        self.browser = None
-        self.open()
+        super().__init__(browser, arguments)
         # Pages
         self.results: List[BeautifulSoup] = []
         # Listings
@@ -207,46 +203,3 @@ class AirbnbScrapper:
             writer = csv.writer(f)
             writer.writerows(data)
             f.close()
-
-    def _get_page(self, url: str, load_time: int) -> BeautifulSoup:
-        """
-        Gets HTML page and returns it as a BeautifulSoup object
-        :param url: URL to get
-        :param load_time: Time in seconds to wait for the page to load
-        :return: BeautifulSoup object
-        """
-        self.logger.info("Fetching page %s", url)
-        if self.browser:
-            self.browser.get(url)
-            time.sleep(load_time)
-            html = self.browser.page_source
-            return BeautifulSoup(html, features="html.parser")
-        else:
-            self.logger.exception("No browser session")
-            raise NullBrowserSession()
-
-    def open(self) -> None:
-        """Initializes Selenium browser"""
-        self.logger.info("Initializing browser: %s", self.browser_name)
-        try:
-            self.browser = start_selenium(self.browser_name, self.browser_args)
-        except BrowserNotSupported:
-            self.logger.exception("Browser not supported")
-            raise
-
-    def close(self) -> None:
-        """Explicitly close the browser session."""
-        if self.browser:
-            self.logger.info("Closing browser session")
-            self.browser.quit()
-            self.browser = None
-        else:
-            self.logger.warning("Trying to close a null browser session")
-
-    def __enter__(self) -> "AirbnbScrapper":
-        """Start the resource when entering a context."""
-        return self
-
-    def __exit__(self, exc_type, exc_value, traceback) -> None:
-        """Ensure the browser closes when the context ends."""
-        self.close()
