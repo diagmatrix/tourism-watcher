@@ -11,6 +11,15 @@ CSS_ACTIVITY = "//select[@id='tipo_objeto_id']"
 TOURIST_APARTMENTS = "Apartamento turístico"
 """ Activity name for tourist apartments registers """
 
+RURAL_HOMES = "Casa rural"
+""" Activity name for rural homes registers """
+
+TOURIST_HOMES = "Vivienda de uso turístico"
+""" Activity name for tourist homes registers """
+
+RURAL_TOURIST_HOMES = "Vivienda turística de alojamiento rural"
+""" Activity name for rural tourist homes registers """
+
 CSS_PROVINCE = "//select[@id='provincia']"
 """ CSS Xpath for the province selector """
 
@@ -26,7 +35,7 @@ MUNICIPALITY_NAME = "GRANADA"
 CSS_SEARCH = "//input[@id='buscar']"
 """ CSS Xpath for the search button """
 
-CSS_RESULTS = "//div[@id='resultado']"
+CSS_RESULTS = "controlPaginacion"
 """ CSS selector for the results """
 
 CSS_EXCEL = "a[onclick='exportarExcel()']"
