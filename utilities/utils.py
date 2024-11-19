@@ -1,3 +1,4 @@
+import os
 from typing import Tuple, Dict
 
 from selenium import webdriver
@@ -63,3 +64,16 @@ def add_browser_options(options: Options, browser_options: Dict) -> None:
             return
         case _:
             raise BrowserOptionsNotSupported()
+
+
+def rename_file(file_path: str, new_name: str) -> None:
+    """
+    Renames a file to a new name
+    :param file_path: Path to the filename to rename
+    :param new_name: New name for the file
+    :throws Exception: If an error occurs
+    """
+
+    directory = os.path.dirname(file_path)
+    new_name_path = os.path.join(directory, new_name)
+    os.rename(file_path, new_name_path)

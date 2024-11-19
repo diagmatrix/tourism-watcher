@@ -12,3 +12,4 @@ WebDriver = Union[
 
 Options = Union[webdriver.ChromeOptions(), webdriver.FirefoxOptions()]
 """ Supported webdriver options """
+
