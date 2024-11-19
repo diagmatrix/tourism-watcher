@@ -1,6 +1,5 @@
 from dataclasses import dataclass
-from selenium import webdriver
-from typing import List, Literal, Union
+from typing import List
 
 
 @dataclass
@@ -24,12 +23,3 @@ class ListingData:
         :return: List of strings containing the data ['url', 'host', 'permit']
         """
         return [self.url, self.host, self.permit]
-
-
-Browser = Literal["chrome", "firefox", "edge", "internet explorer", "safari"]
-""" Supported browsers """
-
-WebDriver = Union[
-    webdriver.Chrome, webdriver.Firefox, webdriver.Edge, webdriver.Ie, webdriver.Safari
-]
-""" Supported selenium drivers """

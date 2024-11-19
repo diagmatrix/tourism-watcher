@@ -16,6 +16,19 @@ class BrowserNotSupported(Exception):
         super().__init__(self.message)
 
 
+class BrowserOptionsNotSupported(Exception):
+    """Exception raised when trying to add an option to a browser where options are not supported
+
+    Attributes:
+        message: Explanation of the exception (optional)
+
+    """
+
+    def __init__(self, message: str = "Browser options not supported") -> None:
+        self.message = message
+        super().__init__(self.message)
+
+
 class NullBrowserSession(Exception):
     """Exception raised when trying to interact with an empty browser session
 
