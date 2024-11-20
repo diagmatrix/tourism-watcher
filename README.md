@@ -8,10 +8,11 @@ Los datos recogidos se obtienen de la búsqueda:
 ## Roadmap
 
 1. Extracción de datos de Airbnb. ✔️
-2. Extracción de datos públicos de las viviendas a partir del permiso turístico.
-3. Eliminar programación necesaria para el uso / añadir UI.
-4. Creación de análsis de los datos recogidos.
-5. Extracción de datos de otros portales.
+2. Extracción de datos públicos de las viviendas a partir del permiso turístico. ✔️
+3. Transformación de los datos obtenidos.
+4. Eliminar programación necesaria para el uso / añadir UI.
+5. Creación de análsis de los datos recogidos.
+6. Extracción de datos de otros portales.
 
 ## Prerrequisitos
 
